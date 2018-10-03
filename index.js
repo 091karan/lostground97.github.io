@@ -84,7 +84,6 @@ $(document).ready(function() {
       chart.draw(levels, {width: 700, height: 500, title: 'Questions Solved by ' + handle});
 
 
-
       	var verTable = [
 	    ["Verdict", "Count"]];
 		var verCol = [];  
