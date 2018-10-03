@@ -5,12 +5,19 @@
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript" src="index.js"></script>
+		<link rel="stylesheet" href="index.css">
 		<title>CodeForces With Graphs</title>
 	</head>
 	<body>
+		<div id="div_head">
+			<hr size="4px"/>
+			<p id="head1">CodeForces With Graphs</p>
+			<hr size="4px"/>
+		</div>
+		<br>
 		<form action="" id="handleform">
             <div id="handleDiv">
-            	Enter Codeforces user handle:
+            	<font id="enter1">Enter Codeforces user handle:</font>
             	&nbsp;
                 <input type="text" name="handle" id="handle"/>
             </div>
@@ -18,8 +25,8 @@
             <br>
             <table>
             	<tr>
-            		<th id="question_index" style="width: 600; height: 550;"></th>
-            		<th id="totalsubmission" style="width: 600; height: 550;"></th>
+            		<th id="question_index" style="width: 725; height: 550;"></th>
+            		<th id="totalsubmission" style="width: 725; height: 550;"></th>
             	</tr>
             </table>
         </form>

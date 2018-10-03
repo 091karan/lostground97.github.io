@@ -81,7 +81,7 @@ $(document).ready(function() {
       levels.addRows(data);
 
       var chart = new google.visualization.ColumnChart(document.getElementById('question_index'));
-      chart.draw(levels, {width: 550, height: 500, title: 'Questions Solved by ' + handle});
+      chart.draw(levels, {width: 700, height: 500, title: 'Questions Solved by ' + handle});
 
 
 
@@ -102,14 +102,14 @@ $(document).ready(function() {
 		      verTable.push(["MLE", verdicts[ver]]);
 		      verCol.push({ color: '#673AB7' });
 		    } else if (ver == "RUNTIME_ERROR") {
-		      verTable.push(["RTE", verdicts[ver]]);
+		      verTable.push(["Run Time Error", verdicts[ver]]);
 		      verCol.push({ color: '#FF5722' });
-		    } else if (ver == "COMPILATION_ERROR") {
-		      verTable.push(["CPE", verdicts[ver]]);
+		    } else if (ver == "COMPILATION") {
+		      verTable.push(["COMPILATION_ERROR", verdicts[ver]]);
 		      verCol.push({ color: '#607D8B' });
 		    } else if (ver == "SKIPPED") {
 		      verTable.push(["SKIPPED", verdicts[ver]]);
-		      verCol.push({ color: '#EEEEEE' });
+		      verCol.push({ color: '#000000' });
 		    } else if (ver == "CLALLENGED") {
 		      verTable.push(["CLALLENGED", verdicts[ver]]);
 		      verCol.push({ color: '#E91E63' });
@@ -121,7 +121,7 @@ $(document).ready(function() {
       verdicts = new google.visualization.arrayToDataTable(verTable);
   var verOptions = {
     height: 500,
-    width : 550,
+    width : 700,
     title: 'Verdicts of '+handle,
     pieSliceText: 'label',
     slices: verCol,
