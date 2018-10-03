@@ -27,7 +27,7 @@ $(document).ready(function() {
   $("#handleform").submit(function(e) {
 
     e.preventDefault();
-    
+
     handle = $("#handle").val().trim();
     if(!handle) {
       err_message("handleDiv","Enter a name");
@@ -81,25 +81,54 @@ $(document).ready(function() {
       levels.addRows(data);
 
       var chart = new google.visualization.ColumnChart(document.getElementById('question_index'));
-      chart.draw(levels, {width: 700, height: 500, title: 'Questions Solved'});
+      chart.draw(levels, {width: 550, height: 500, title: 'Questions Solved by ' + handle});
 
 
 
-      data1 = [];
-      for (var verdict in verdicts) {
-        data1.push([verdict, verdicts[verdict]]);
-      }
-      data1.sort(function(a, b) {
-        if (a[0] < b[0]) return -1;
-        else return 1;
-      });
-      ver = new google.visualization.DataTable();
-      ver.addColumn('string','Level');
-      ver.addColumn('number','solved');
-      ver.addRows(data1);
-      
-      var chart = new google.visualization.PieChart(document.getElementById('totalsubmission'));
-      chart.draw(ver, {width: 700, height: 500, title: 'Total Submissions'});
+      	var verTable = [
+	    ["Verdict", "Count"]];
+		var verCol = [];  
+		for (var ver in verdicts) {
+		    if (ver == "OK") {
+		      verTable.push(["AC", verdicts[ver]]);
+		      verCol.push({ color: '#4CAF50' });
+		    } else if (ver == "WRONG_ANSWER") {
+		      verTable.push(["WA", verdicts[ver]]);
+		      verCol.push({ color: '#f44336' });
+		    } else if (ver == "TIME_LIMIT_EXCEEDED") {
+		      verTable.push(["TLE", verdicts[ver]]);
+		      verCol.push({ color: '#2196F3' });
+		    } else if (ver == "MEMORY_LIMIT_EXCEEDED") {
+		      verTable.push(["MLE", verdicts[ver]]);
+		      verCol.push({ color: '#673AB7' });
+		    } else if (ver == "RUNTIME_ERROR") {
+		      verTable.push(["RTE", verdicts[ver]]);
+		      verCol.push({ color: '#FF5722' });
+		    } else if (ver == "COMPILATION_ERROR") {
+		      verTable.push(["CPE", verdicts[ver]]);
+		      verCol.push({ color: '#607D8B' });
+		    } else if (ver == "SKIPPED") {
+		      verTable.push(["SKIPPED", verdicts[ver]]);
+		      verCol.push({ color: '#EEEEEE' });
+		    } else if (ver == "CLALLENGED") {
+		      verTable.push(["CLALLENGED", verdicts[ver]]);
+		      verCol.push({ color: '#E91E63' });
+		    } else {
+		      verTable.push([ver, verdicts[ver]]);
+		      verCol.push({});
+		    }
+		  }
+      verdicts = new google.visualization.arrayToDataTable(verTable);
+  var verOptions = {
+    height: 500,
+    width : 550,
+    title: 'Verdicts of '+handle,
+    pieSliceText: 'label',
+    slices: verCol,
+    titleTextStyle: titleTextStyle,
+  };
+  var verChart = new google.visualization.PieChart(document.getElementById('totalsubmission'));
+  verChart.draw(verdicts, verOptions);
 
 
 
