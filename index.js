@@ -34,11 +34,19 @@ $(document).ready(function() {
       $("#mainSpinner").removeClass("is-active");
       return; // No handle is provided, we can't do anything.
     }
-
+    req1 = $.get(api_url + "user.info",{"handles":handle}, function(data,status)
+    {
+      var sub = data.result[0];
+      var name = sub.firstName + " " + sub.lastName;
+      var r = sub.maxRating;
+      var rk = sub.maxRank;
+      $("#name_f").html("Name : " + name);
+      $("#head_rating").html("Maximum Rating : " + r + " (" + rk + ")");
+    });
 
     // getting all the submissions of a user
     req1 = $.get(api_url + "user.status", { "handle": handle }, function(data, status) {
-      console.log(data);
+      //console.log(data);
 
       $(".sharethis").removeClass("hidden");
 
