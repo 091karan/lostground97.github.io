@@ -24,3 +24,18 @@ body{
     position : fixed;
     width : 100%;
 }
+
+.handle1{
+	font-weight: bold;
+	text-align: left;
+}
+
+.name_f{
+	font-weight: bold;
+	text-align: center;
+}
+
+.head_rating{
+	font-weight: bold;
+	text-align: right;
+}

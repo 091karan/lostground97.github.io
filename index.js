@@ -40,6 +40,7 @@ $(document).ready(function() {
       var name = sub.firstName + " " + sub.lastName;
       var r = sub.maxRating;
       var rk = sub.maxRank;
+      $("#handle1").html("UserHandle : " + handle);
       $("#name_f").html("Name : " + name);
       $("#head_rating").html("Maximum Rating : " + r + " (" + rk + ")");
     });
