@@ -5,3 +5,5 @@ I'm new to Javascripts and Google charts. So bugs are obvious. If you encounter 
 Hope you like it. :)
 
 You can access the site from : https://lostground97.github.io
+
+# This is just for Hacktoberfest 2018.. Hope I get a Tshirt. #
